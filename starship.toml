@@ -1,0 +1,120 @@
+# ~/.config/starship.toml
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Change command timeout from 500 to 1000 ms
+command_timeout = 1000
+
+
+# Change the default prompt format
+#format = """\
+#[╭╴](238)$username$env_var\
+#$all[╰─](238)$character"""
+
+# Change the default prompt format
+format = """\
+[╭╴](238)$username $hostname $shell $time  $git_state$git_branch$git_commit$git_status$python$sudo 
+$directory$charactere"""
+
+
+# UserName
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "🕹️:[$user](127)"
+disabled = false
+show_always = true 
+
+
+# PWD Directory
+[directory]
+truncation_length = 8
+truncation_symbol = "…/"
+
+
+# Command Duration 
+[cmd_duration]
+disabled=true
+
+
+[character]
+success_symbol = "[►](10)"
+error_symbol = "[►](9)"
+disabled=false
+
+
+# PC name
+[hostname]
+ssh_only = false
+format =  "💻:[$hostname](129) 22.04(196)"
+trim_at = ".companyname.com"
+disabled = false
+
+
+# Jobs 
+[jobs]
+symbol = "+ "
+number_threshold = 4
+symbol_threshold = 0
+
+
+#GIT Commit
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
+
+
+
+# GIT Branch
+[git_branch]
+symbol = "🌱 "
+truncation_length = 15
+truncation_symbol = ""
+
+#GIT State
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+#Gist Status
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+
+#Shell
+[shell]
+fish_indicator = "🐟"
+powershell_indicator = "√_"
+bash_indicator = "🐚"
+disabled = false
+
+#Python
+[python]
+pyenv_version_name = true
+symbol = "🐍"
+disabled=false
+
+#SUDO
+[sudo]
+style = "bold green"
+symbol = "👩‍💻 "
+disabled = false
+
+#TIME
+[time]
+#disabled = false
+format = '🕙[\[ $time \]]($style) '
+time_format = "%T"
+utc_time_offset = "-5"
+time_range = "10:00:00-14:00:00"
