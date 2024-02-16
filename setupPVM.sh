@@ -22,7 +22,7 @@ mkdir -p ~/Shared
 sudo chmod 777 ~/Shared -R
  
 rm /home/omar/.bashrc
-curl -o /home/omar/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/.bashrc
+curl -o /home/omar/.bashrc https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/.bashrc
 
 rm /home/omar/.config/fish/config.fish
 curl -o /home/omar/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/config.fish
@@ -31,7 +31,7 @@ rm /home/omar/.config/starship.toml
 curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/starship.toml
 
 rm /etc/samba/smb.conf
-curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/smb.conf
+curl -o /etc/samba/smb.conf https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/smb.conf
 
 
 cd

@@ -20,7 +20,7 @@ mkdir -p ~/.config
 
 
 rm ~/.bashrc
-curl -o ~/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/.bashrc
+curl -o ~/.bashrc https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/.bashrc
 
 rm ~/.config/fish/config.fish
 curl -o ~/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/config.fish
