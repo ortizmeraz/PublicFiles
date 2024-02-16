@@ -19,14 +19,14 @@ mkdir -p ~/.config
 
 
 
-rm /home/omar/.bashrc
-curl -o /home/omar/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/.bashrc
+rm ~/.bashrc
+curl -o ~/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/.bashrc
 
-rm /home/omar/.config/fish/config.fish
-curl -o /home/omar/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/config.fish
+rm ~/.config/fish/config.fish
+curl -o ~/.config/fish/config.fish https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/config.fish
 
-rm /home/omar/.config/starship.toml
-curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/starship.toml
+rm ~/.config/starship.toml
+curl -o ~/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/starship.toml
 
 cd
 git clone https://github.com/gpakosz/.tmux.git
@@ -34,3 +34,6 @@ ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 
 mkdir -p ~/.config/tmux
+
+rm ~/.tmux.conf.local
+curl -o ~/.tmux.conf.local https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/tmux.conf.local

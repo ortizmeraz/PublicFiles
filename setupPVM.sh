@@ -39,6 +39,9 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 
+rm ~/.tmux.conf.local
+curl -o ~/.tmux.conf.local https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/tmux.conf.local
+
 sudo systemclt enable qemu-guest-agent
 sudo systemclt start qemu-guest-agent
 
