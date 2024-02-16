@@ -3,7 +3,7 @@ if status is-interactive
 end
 neofetch
 starship init fish | source
-
+tmux
 
 abbr ls 'exa -l -g -F --icons'
 

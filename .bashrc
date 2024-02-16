@@ -123,7 +123,8 @@ fi
 eval "$(starship init bash)"
 # ./bak.sh
 fish
-
+cp .tmux.conf .config/tmux/tmux.conf
+cp .tmux.conf.local .config/tmux/tmux.conf.local
 
 #######
 alias ls='exa -l -g -F --icons'
@@ -158,8 +159,6 @@ alias londock='ssh omar@192.168.0.27'
 alias searxy='ssh omar@192.168.0.28'
 alias site='ssh omar@192.168.0.31'
 # alias source='source .bashrc'
-
-alias YesNote='python3 /mnt/e/GitHub/OmarToolboX/Python/Obsypy/Scripts/YesterNote.py'
 
 
 

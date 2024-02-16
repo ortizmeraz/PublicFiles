@@ -30,9 +30,8 @@ curl -o /home/omar/.config/fish/config.fish https://raw.githubusercontent.com/or
 rm /home/omar/.config/starship.toml
 curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/starship.toml
 
-
 rm /etc/samba/smb.conf
-curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/starship.toml
+curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/smb.conf
 
 
 
