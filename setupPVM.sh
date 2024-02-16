@@ -34,10 +34,6 @@ rm /etc/samba/smb.conf
 curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/smb.conf
 
 
-
-
-
-
 cd
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
