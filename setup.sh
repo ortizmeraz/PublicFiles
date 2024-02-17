@@ -37,3 +37,7 @@ mkdir -p ~/.config/tmux
 
 rm ~/.tmux.conf.local
 curl -o ~/.tmux.conf.local https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/tmux.conf.local
+
+
+sudo apt install fonts-firacode
+fc-cache -f -v

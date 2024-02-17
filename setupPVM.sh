@@ -30,8 +30,8 @@ curl -o /home/omar/.config/fish/config.fish https://raw.githubusercontent.com/or
 rm /home/omar/.config/starship.toml
 curl -o /home/omar/.config/starship.toml https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/starship.toml
 
-rm /etc/samba/smb.conf
-curl -o /etc/samba/smb.conf https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/smb.conf
+# rm /etc/samba/smb.conf
+# curl -o /etc/samba/smb.conf https://raw.githubusercontent.com/ortizmeraz/PublicFiles/main/smb.conf
 
 
 cd
@@ -44,6 +44,17 @@ curl -o ~/.tmux.conf.local https://raw.githubusercontent.com/ortizmeraz/PublicFi
 
 sudo systemclt enable qemu-guest-agent
 sudo systemclt start qemu-guest-agent
+
+sudo apt install fonts-firacode
+fc-cache -f -v
+
+
+echo "[Shared]
+   path = ~/Shared
+   writable = yes
+   guest ok = yes
+   read only = no" | sudo tee -a /etc/samba/smb.conf
+
 
 
 sudo reboot
