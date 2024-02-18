@@ -1,6 +1,8 @@
 sudo apt update
 sudo apt upgrade -y
 sudo apt install nala -y
+
+
 sudo nala install neofetch -y
 sudo nala install python3 -y
 sudo nala install curl -y

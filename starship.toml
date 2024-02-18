@@ -29,7 +29,7 @@ show_always = true
 
 # PWD Directory
 [directory]
-truncation_length = 8
+truncation_length = 3 
 truncation_symbol = "…/"
 
 
