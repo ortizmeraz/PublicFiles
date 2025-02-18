@@ -6,24 +6,30 @@
 # Chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-choco install flow-launcher
-choco install vscodium
-choco install marktext
-choco install zotero
-choco install github-desktop
-choco install vscode
-choco install ferdium
-choco install vivaldi
-choco install brave
-choco install chromium
-choco install qgis-ltr
-choco install discord
-choco install microsoft-teams
-choco install microsoft-windows-terminal
-choco install powertoys
-choco install touchportal
-choco install python3
-choco install calibre
+choco install flow-launcher -a
+choco install vscodium -a
+choco install marktext -a
+choco install zotero -a
+choco install github-desktop -a
+choco install vscode -a
+choco install ferdium -a
+choco install vivaldi -a
+choco install brave -a
+choco install chromium -a
+choco install qgis-ltr -a
+choco install discord -a
+choco install microsoft-teams -a
+choco install microsoft-windows-terminal -a
+choco install powertoys -a
+choco install touchportal -a
+choco install calibre -a
+choco install calibre -a
+choco install calibre -a
+choco install calibre -a
+choco install git  -a
+choco install obsidian  -a
+choco install steam  -a
+choco install foxitreader  -a
 
 
 #  Epic
