@@ -7,7 +7,8 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 choco install flow-launcher -a
-choco install vscodium -a
+choco install vlc -a
+choco install vscodium -aº
 choco install marktext -a
 choco install zotero -a
 choco install github-desktop -a
