@@ -31,6 +31,7 @@ choco install git  -a
 choco install obsidian  -a
 choco install steam  -a
 choco install foxitreader  -a
+choco install handbrake -a
 
 
 #  Epic
