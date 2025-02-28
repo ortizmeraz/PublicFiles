@@ -32,7 +32,7 @@ choco install obsidian  -a
 choco install steam  -a
 choco install foxitreader  -a
 choco install handbrake -a
-
+choco install firefox -a
 
 #  Epic
 wget https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi
