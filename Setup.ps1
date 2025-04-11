@@ -18,6 +18,7 @@ $env:Path += ";$env:ALLUSERSPROFILE\chocolatey\bin"
 # List of packages to install
 $packages = @(
     "brave",
+    "bitwarden",
     "calibre",
     "chromium",
     "discord",
@@ -32,6 +33,7 @@ $packages = @(
     "microsoft-teams",
     "obsidian",
     "pdf24",
+    "calibre",
     "powertoys",
     "qgis-ltr",
     "revo-uninstaller",
