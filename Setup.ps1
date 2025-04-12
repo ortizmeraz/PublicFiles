@@ -39,11 +39,13 @@ $packages = @(
     "revo-uninstaller",
     "starship",
     "steam",
+    "streamdeck",
     "vivaldi",
     "vlc",
     "vscode",
     "vscodium",
     "waterfox",
+    "windirstat",
     "zotero"
 )
 
