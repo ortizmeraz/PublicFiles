@@ -1,0 +1,55 @@
+version: "2.1"
+
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    restart: always
+    network_mode: "container:Gluetun_VPN_PIA"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/omar/DockerConfs/ProwlARR/config:/config
+
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    restart: always
+    network_mode: "container:Gluetun_VPN_PIA"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    volumes:
+      - /home/omar/DockerConfs/Readarr/config:/config
+      - /home/omar/books:/books      # optional
+      - /home/omar/downloads:/downloads  # optional
+
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    restart: always
+    network_mode: "container:Gluetun_VPN_PIA"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    volumes:
+      - /home/omar/series:/data      # your media
+      - /home/omar/DockerConfs/Sonarr/config:/config
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    restart: always
+    network_mode: "container:Gluetun_VPN_PIA"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - WEBUI_PORT=8180
+    volumes:
+      - /home/omar/DockerConfs/Qbit/config:/config
+      - /home/omar/downloads:/downloads

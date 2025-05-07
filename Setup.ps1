@@ -37,6 +37,7 @@ $packages = @(
     "powertoys",
     "qgis-ltr",
     "revo-uninstaller",
+    "rpi-imager",
     "starship",
     "steam",
     "streamdeck",
