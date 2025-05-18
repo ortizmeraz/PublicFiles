@@ -1,12 +1,5 @@
 version: "2.1"
 
-networks:
-  servarrnetwork:
-    name: servarrnetwork
-    ipam:
-      config:
-        - subnet: 172.69.0.0/24
-
 services:
   gluetun:
     image: qmcgaw/gluetun
@@ -14,9 +7,7 @@ services:
     cap_add:
       - NET_ADMIN
     restart: always
-    networks:
-      servarrnetwork:
-        ipv4_address: 172.69.0.2
+
     volumes:
       - ${Master_Path}/gluetun:/gluetun
     ports:
@@ -59,7 +50,7 @@ services:
     volumes:
       - ./qbittorrent:/config
       - ${Data_Path}:/data
-    network_mode: service:gluetun
+    network_mode: "container:Gluetun_VPN_PIA"
     depends_on:
       gluetun:
         condition: service_healthy
@@ -93,7 +84,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./prowlarr:/config
-    network_mode: service:gluetun
+    network_mode: "container:Gluetun_VPN_PIA"
     depends_on:
       gluetun:
         condition: service_healthy
@@ -110,11 +101,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./sonarr:/config
       - ${Data_Path}:/data
-    ports:
-      - 8989:8989
-    networks:
-      servarrnetwork:
-        ipv4_address: 172.69.0.3
+    network_mode: "container:Gluetun_VPN_PIA"
 
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -128,11 +115,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./radarr:/config
       - ${Data_Path}:/data
-    ports:
-      - 7878:7878
-    networks:
-      servarrnetwork:
-        ipv4_address: 172.69.0.4
+    network_mode: "container:Gluetun_VPN_PIA"
+
 
   lidarr:
     image: lscr.io/linuxserver/lidarr:latest
@@ -146,42 +130,36 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./lidarr:/config
       - ${Data_Path}:/data
-    ports:
-      - 8686:8686
-    networks:
-      servarrnetwork:
-        ipv4_address: 172.69.0.5
+    network_mode: "container:Gluetun_VPN_PIA"
 
-  bazarr:
-    image: lscr.io/linuxserver/bazarr:latest
-    container_name: bazarr
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./bazarr:/config
-      - ${Data_Path}:/data
-    ports:
-      - 6767:6767
-    networks:
-      servarrnetwork:
-        ipv4_address: 172.69.0.6
 
-  ytdl-sub:
-    image: ghcr.io/jmbannon/ytdl-sub:latest
-    container_name: ytdl-sub
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - DOCKER_MODS=linuxserver/mods:universal-cron
-    volumes:
-      - ./ytdl-sub:/config
-      - ${Data_Path}/youtube:/youtube
-    networks:
-      servarrnetwork:
-        ipv4_address: 172.69.0.8
+  # bazarr:
+  #   image: lscr.io/linuxserver/bazarr:latest
+  #   container_name: bazarr
+  #   restart: always
+  #   environment:
+  #     - PUID=${PUID}
+  #     - PGID=${PGID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - ./bazarr:/config
+  #     - ${Data_Path}:/data
+  #   network_mode: "container:Gluetun_VPN_PIA"
+
+
+  # ytdl-sub:
+  #   image: ghcr.io/jmbannon/ytdl-sub:latest
+  #   container_name: ytdl-sub
+  #   restart: always
+  #   environment:
+  #     - PUID=${PUID}
+  #     - PGID=${PGID}
+  #     - TZ=${TZ}
+  #     - DOCKER_MODS=linuxserver/mods:universal-cron
+  #   volumes:
+  #     - ./ytdl-sub:/config
+  #     - ${1}/youtube:/youtube
+  #   networks:
+  #     servarrnetwork:
+  #       ipv4_address: 172.69.0.8
