@@ -31,7 +31,6 @@ services:
       - OPENVPN_PASSWORD=${PIA_VPN_PASSWORD}
       - SERVER_REGIONS=Iceland
 
-services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     container_name: prowlarr
