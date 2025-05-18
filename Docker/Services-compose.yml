@@ -24,7 +24,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ${Master_Path}/Readarr/config:/config
-      - ${Data_Path}/books:/books      # optional
+      - ${Data_Path}:/data      # optional
       - ${Data_Path}/downloads:/downloads  # optional
 
   sonarr:
@@ -37,7 +37,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ${Data_Path}/series:/data      # your media
+      - ${Data_Path}:/data      # optional
+      - ${Data_Path}/downloads:/downloads  # optional
       - ${Master_Path}/Sonarr/config:/config
 
   lidarr:
@@ -49,10 +50,26 @@ services:
       - TZ=${TZ}
     volumes:
       - ${Master_Path}/lidarr/config:/config
-      - ${Data_Path}/music:/music #optional
-      - ${Data_Path}/downloads:/downloads #optional
+      - ${Data_Path}:/data      # optional
+      - ${Data_Path}/downloads:/downloads  # optional
     network_mode: "container:Gluetun_VPN_PIA"
     restart: always
+
+
+  radarr:
+    image: linuxserver/radarr
+    container_name: radarr
+    restart: always
+    environment:
+      - UMASK_SET=022 # control permissions of files and directories created by Radarr
+      - TZ=${TZ} # Specify a timezone to use EG Europe/London, this is required for Radarr
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${Master_Path}/Radarr/config:/config # Database and Radarr configs
+      - ${Data_Path}:/data      # optional
+      - ${Data_Path}/downloads:/downloads  # optional
+    network_mode: 'container:Gluetun_VPN_PIA'
 
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
