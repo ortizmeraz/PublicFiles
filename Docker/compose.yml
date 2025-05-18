@@ -30,136 +30,69 @@ services:
       - OPENVPN_USER=${PIA_VPN_USER}
       - OPENVPN_PASSWORD=${PIA_VPN_PASSWORD}
       - SERVER_REGIONS=Iceland
-    healthcheck:
-      test: ["CMD", "ping", "-c", "1", "www.google.com"]
-      interval: 20s
-      timeout: 10s
-      retries: 5
 
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    restart: always
+    network_mode: "container:Gluetun_VPN_PIA"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${Master_Path}/ProwlARR/config:/config
+
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    restart: always
+    network_mode: "container:Gluetun_VPN_PIA"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${Master_Path}/Readarr/config:/config
+      - ${Data_Path}/books:/books      # optional
+      - ${Data_Path}/downloads:/downloads  # optional
+
+  sonarr:
+    image: linuxserver/sonarr
+    container_name: sonarr
+    restart: always
+    network_mode: "container:Gluetun_VPN_PIA"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${Data_Path}/series:/data      # your media
+      - ${Master_Path}/Sonarr/config:/config
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${Master_Path}/lidarr/config:/config
+      - ${Data_Path}/music:/music #optional
+      - ${Data_Path}/downloads:/downloads #optional
+    network_mode: "container:Gluetun_VPN_PIA"
+    restart: always
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
     restart: always
-    labels:
-      - deunhealth.restart.on.unhealthy=true
+    network_mode: "container:Gluetun_VPN_PIA"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
       - WEBUI_PORT=8080
     volumes:
-      - ./qbittorrent:/config
-      - ${Data_Path}:/data
-    network_mode: "container:Gluetun_VPN_PIA"
-    depends_on:
-      gluetun:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD", "ping", "-c", "1", "www.google.com"]
-      interval: 60s
-      timeout: 10s
-      retries: 3
-      start_period: 20s
-
-  deunhealth:
-    image: qmcgaw/deunhealth
-    container_name: deunhealth
-    network_mode: none
-    restart: always
-    environment:
-      - LOG_LEVEL=info
-      - HEALTH_SERVER_ADDRESS=127.0.0.1:9999
-      - TZ=${TZ}
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
-  prowlarr:
-    image: lscr.io/linuxserver/prowlarr:latest
-    container_name: prowlarr
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./prowlarr:/config
-    network_mode: "container:Gluetun_VPN_PIA"
-    depends_on:
-      gluetun:
-        condition: service_healthy
-
-  sonarr:
-    image: lscr.io/linuxserver/sonarr:latest
-    container_name: sonarr
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./sonarr:/config
-      - ${Data_Path}:/data
-    network_mode: "container:Gluetun_VPN_PIA"
-
-  radarr:
-    image: lscr.io/linuxserver/radarr:latest
-    container_name: radarr
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./radarr:/config
-      - ${Data_Path}:/data
-    network_mode: "container:Gluetun_VPN_PIA"
-
-
-  lidarr:
-    image: lscr.io/linuxserver/lidarr:latest
-    container_name: lidarr
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./lidarr:/config
-      - ${Data_Path}:/data
-    network_mode: "container:Gluetun_VPN_PIA"
-
-
-  # bazarr:
-  #   image: lscr.io/linuxserver/bazarr:latest
-  #   container_name: bazarr
-  #   restart: always
-  #   environment:
-  #     - PUID=${PUID}
-  #     - PGID=${PGID}
-  #     - TZ=${TZ}
-  #   volumes:
-  #     - /etc/localtime:/etc/localtime:ro
-  #     - ./bazarr:/config
-  #     - ${Data_Path}:/data
-  #   network_mode: "container:Gluetun_VPN_PIA"
-
-
-  # ytdl-sub:
-  #   image: ghcr.io/jmbannon/ytdl-sub:latest
-  #   container_name: ytdl-sub
-  #   restart: always
-  #   environment:
-  #     - PUID=${PUID}
-  #     - PGID=${PGID}
-  #     - TZ=${TZ}
-  #     - DOCKER_MODS=linuxserver/mods:universal-cron
-  #   volumes:
-  #     - ./ytdl-sub:/config
-  #     - ${1}/youtube:/youtube
-  #   networks:
-  #     servarrnetwork:
-  #       ipv4_address: 172.69.0.8
+      - ${Master_Path}/Qbit/config:/config
+      - ${Data_Path}/downloads:/downloads
