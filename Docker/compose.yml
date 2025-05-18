@@ -19,7 +19,6 @@ networks:
 services:
   gluetun:
     image: qmcgaw/gluetun
-    container_name: Gluetun_VPN_PIA
     cap_add:
       - NET_ADMIN
     restart: always
