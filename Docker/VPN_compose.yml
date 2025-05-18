@@ -21,8 +21,8 @@ services:
       - 9696:9696
       # mylarr
       - 8090:8090
-      # Brave
-      - 6901:6901
+      # liddar
+      - 8686:8686
 
     environment:
       - VPN_SERVICE_PROVIDER=private internet access
