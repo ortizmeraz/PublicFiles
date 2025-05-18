@@ -24,6 +24,7 @@ $packages = @(
     "discord",
     "ferdium",
     "firefox",
+    "firacode",
     "flow-launcher",
     "foxitreader",
     "git",
@@ -38,6 +39,7 @@ $packages = @(
     "qgis-ltr",
     "revo-uninstaller",
     "rpi-imager",
+    "signal",
     "starship",
     "steam",
     "streamdeck",
@@ -55,3 +57,6 @@ foreach ($package in $packages) {
     Write-Output "Installing $package..."
     choco install $package -y
 }
+
+
+wget https://c2rsetup.officeapps.live.com/c2r/download.aspx?ProductreleaseID=OutlookRetail&language=en-us&platform=def&version=O16GA
