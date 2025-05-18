@@ -7,11 +7,11 @@ services:
     restart: always
     network_mode: "container:Gluetun_VPN_PIA"
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=Europe/London
     volumes:
-      - /home/omar/DockerConfs/ProwlARR/config:/config
+      - ${Master_Path}/ProwlARR/config:/config
 
   readarr:
     image: lscr.io/linuxserver/readarr:develop
@@ -19,13 +19,13 @@ services:
     restart: always
     network_mode: "container:Gluetun_VPN_PIA"
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - /home/omar/DockerConfs/Readarr/config:/config
-      - /home/omar/books:/books      # optional
-      - /home/omar/downloads:/downloads  # optional
+      - ${Master_Path}/Readarr/config:/config
+      - ${Data_Path}/books:/books      # optional
+      - ${Data_Path}/downloads:/downloads  # optional
 
   sonarr:
     image: linuxserver/sonarr
@@ -33,12 +33,26 @@ services:
     restart: always
     network_mode: "container:Gluetun_VPN_PIA"
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - /home/omar/series:/data      # your media
-      - /home/omar/DockerConfs/Sonarr/config:/config
+      - ${Data_Path}/series:/data      # your media
+      - ${Master_Path}/Sonarr/config:/config
+
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${Master_Path}/lidarr/config:/config
+      - ${Data_Path}/music:/music #optional
+      - ${Data_Path}/downloads:/downloads #optional
+    network_mode: "container:Gluetun_VPN_PIA"
+    restart: always
 
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
@@ -46,10 +60,10 @@ services:
     restart: always
     network_mode: "container:Gluetun_VPN_PIA"
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
       - WEBUI_PORT=8180
     volumes:
-      - /home/omar/DockerConfs/Qbit/config:/config
-      - /home/omar/downloads:/downloads
+      - ${Master_Path}/Qbit/config:/config
+      - ${Data_Path}/downloads:/downloads
