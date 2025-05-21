@@ -127,8 +127,8 @@ cp .tmux.conf .config/tmux/tmux.conf
 cp .tmux.conf.local .config/tmux/tmux.conf.local
 
 #######
-alias ls='exa -l -g -F --icons'
-alias lsa='exa -l -a -g -F --icons'
+alias ls='eza -l -g -F --icons'
+alias lsa='eza -l -a -g -F --icons'
 alias clear='clear && neofetch'
 # Python
 alias P3='python3'
