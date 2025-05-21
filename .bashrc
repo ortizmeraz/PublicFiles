@@ -122,7 +122,7 @@ fi
 # neofetch
 eval "$(starship init bash)"
 # ./bak.sh
-fish
+# fish
 cp .tmux.conf .config/tmux/tmux.conf
 cp .tmux.conf.local .config/tmux/tmux.conf.local
 
@@ -130,6 +130,7 @@ cp .tmux.conf.local .config/tmux/tmux.conf.local
 alias ls='eza -l -g -F --icons'
 alias lsa='eza -l -a -g -F --icons'
 alias clear='clear && neofetch'
+alias bat='batcat'
 # Python
 alias P3='python3'
 alias python='python3'
