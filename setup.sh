@@ -8,7 +8,7 @@ sudo nala install python3 -y
 sudo nala install curl -y
 sudo nala install ranger -y
 sudo nala install btop -y
-sudo nala install exa -y
+sudo nala install eza -y
 sudo nala install tmux -y
 sudo nala install fish -y
 sudo nala install bat -y
