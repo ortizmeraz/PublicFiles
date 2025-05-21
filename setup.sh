@@ -43,3 +43,5 @@ curl -o ~/.tmux.conf.local https://raw.githubusercontent.com/ortizmeraz/PublicFi
 
 sudo apt install fonts-firacode
 fc-cache -f -v
+
+wget https://raw.githubusercontent.com/ortizmeraz/PublicFiles/refs/heads/main/.bashrc
