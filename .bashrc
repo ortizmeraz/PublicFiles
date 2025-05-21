@@ -160,7 +160,8 @@ alias searxy='ssh omar@192.168.0.28'
 alias site='ssh omar@192.168.0.31'
 # alias source='source .bashrc'
 
-
+alias docstop = ' docker stop $(docker ps -aq)'
+alias docrm = ' docker rm $(docker ps -aq)'
 
 
 # Ansible Commands
