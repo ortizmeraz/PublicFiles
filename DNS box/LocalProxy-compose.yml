@@ -1,0 +1,14 @@
+
+version: '3'
+services:
+  LocalProxy:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: Local_Proxy
+    restart: always
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ${Master_Path}/LocalProxy/data:/data
+      - ${Master_Path}/LocalProxy/LetEnc:/etc/letsencrypt
