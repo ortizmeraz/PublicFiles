@@ -9,7 +9,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=Europe/London
+      - TZ=${TZ}
     volumes:
       - ${Master_Path}/ProwlARR/config:/config
 
