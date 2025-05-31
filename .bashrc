@@ -123,8 +123,8 @@ fi
 eval "$(starship init bash)"
 # ./bak.sh
 # fish
-cp .tmux.conf .config/tmux/tmux.conf
-cp .tmux.conf.local .config/tmux/tmux.conf.local
+# cp .tmux.conf .config/tmux/tmux.conf
+# cp .tmux.conf.local .config/tmux/tmux.conf.local
 
 #######
 alias ls='eza -l -g -F --icons'
@@ -139,12 +139,6 @@ alias apt='nala'
 # Navigation
 alias ..='cd ..'
 alias ~~='cd ~'
-alias CT='cd /mnt/e/GitHub/CAMMM-Tool_1.3'
-alias OT='cd /mnt/e/GitHub/OmarToolBox'
-alias DL='cd /mnt/g/Downloads'
-alias GH='cd /mnt/e/GitHub'
-alias CAMMM='cd /mnt/e/Github/CAMMM-2.0/Scripts'
-
 
 # SSH conections
 alias mini='ssh omar@192.168.0.15'
@@ -159,36 +153,3 @@ alias piserver='ssh omar@192.168.0.25'
 alias londock='ssh omar@192.168.0.27'
 alias searxy='ssh omar@192.168.0.28'
 alias site='ssh omar@192.168.0.31'
-# alias source='source .bashrc'
-
-alias docstop = ' docker stop $(docker ps -aq)'
-alias docrm = ' docker rm $(docker ps -aq)'
-
-
-# Ansible Commands
-# alias rbpibox ='ansible-playbook -i inventory -l pibox /mnt/e/GitHub/OmarToolBox/ansible/Reboot_PiBox.yml -K'
-
-
-# alias rmssh ='python3 .commands/remove_key.py'
-# alias sndssh='python3 .commands/send_key.py'
-# 
-# alias ynote='python3 python3 /mnt/e/GitHub/OmarToolboX/Python/Obsypy/Scripts/YesterNote.py'
-
-# Docker alias --if present--
-# DIRECTORY='/home/omar/.dockercomands'
-# if [ -d "$DIRECTORY" ]; then
-#   echo 'Docker present; loading Docker alias'
-# #   alias up ='docker-compose up -d'
-# #   alias redock='systemctl restart docker.service'
-#   exit 1
-# fi
-# Ansible alias -- TODO If presesnt
-# DIRECTORY='/home/omar/.ansiblecomands'
-# if [ -d "$DIRECTORY" ]; then
-#   # code to be executed if $DIRECTORY exists.
-#   echo "Loading Ansible commands"
-#   alias Aping='sh /home/omar/.ansiblecomands/pingAll.sh'
-# fi
-
-# ./bak.sh
-# echo "Backup done....."
