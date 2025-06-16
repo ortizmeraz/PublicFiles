@@ -39,10 +39,16 @@ format = '[$duration](bold yellow)'
 disabled=false
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+"Documents" = "📂"
+"downloads" = "⬇️"
+"music" = "🎼"
+"movies" = "🎞️"
+"home" = "🏠"
+"podcast" = "🎙️"
+"series" = "📺"
+"audiobooks" = "📖"
+"books" = "📚"
+"" = ""
 "OmarToolboX" = "🔨"
 
 [character]
@@ -110,7 +116,7 @@ deleted = "🗑 "
 #Shell
 [shell]
 fish_indicator = "🐟"
-powershell_indicator = " "
+powershell_indicator = "🪟"
 bash_indicator = "🐚"
 zsh_indicator = " 💤"
 disabled = false
