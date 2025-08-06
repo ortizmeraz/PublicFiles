@@ -39,6 +39,7 @@ $packages = @(
     "qgis-ltr",
     "revo-uninstaller",
     "rpi-imager",
+    "scrivener",
     "signal",
     "starship",
     "steam",
@@ -58,5 +59,7 @@ foreach ($package in $packages) {
     choco install $package -y
 }
 
+
+choco install 
 
 wget https://c2rsetup.officeapps.live.com/c2r/download.aspx?ProductreleaseID=OutlookRetail&language=en-us&platform=def&version=O16GA
