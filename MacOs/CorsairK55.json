@@ -1,0 +1,147 @@
+{
+    "description": "Corsair K55 only: hold Caps as modifier; Caps+Shift+O opens Obsidian; Caps+Shift+T opens Tabby; Caps+Shift+A opens Apps",
+    "manipulators": [
+        {
+            "conditions": [
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "caps_lock",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "corsair_caps_mod",
+                        "value": 1
+                    }
+                }
+            ],
+            "to_after_key_up": [
+                {
+                    "set_variable": {
+                        "name": "corsair_caps_mod",
+                        "value": 0
+                    }
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "corsair_caps_mod",
+                    "type": "variable_if",
+                    "value": 1
+                },
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "o",
+                "modifiers": {
+                    "mandatory": ["left_shift"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [{ "shell_command": "/usr/bin/open -a \"Obsidian\"" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "corsair_caps_mod",
+                    "type": "variable_if",
+                    "value": 1
+                },
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "t",
+                "modifiers": {
+                    "mandatory": ["left_shift"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [{ "shell_command": "/usr/bin/open -a \"Tabby\"" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "corsair_caps_mod",
+                    "type": "variable_if",
+                    "value": 1
+                },
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "f",
+                "modifiers": {
+                    "mandatory": ["left_shift"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [{ "shell_command": "/usr/bin/open -a \"Ferdium\"" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "corsair_caps_mod",
+                    "type": "variable_if",
+                    "value": 1
+                },
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "a",
+                "modifiers": {
+                    "mandatory": ["left_shift"],
+                    "optional": ["any"]
+                }
+            },
+            "to": [{ "shell_command": "/usr/bin/open -a \"Apps\"" }],
+            "type": "basic"
+        }
+    ]
+}
