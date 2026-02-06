@@ -1,8 +1,70 @@
 {
-    "description": "Corsair K55 only: hold Caps as modifier; Caps+Shift+O opens Obsidian; Caps+Shift+T opens Tabby; Caps+Shift+A opens Apps",
+    "description": "Corsair K55 only: single-key swaps (L⌘<->L⌥, R⌥->R⌘) + Caps-mod launcher + double-tap Caps toggles Caps Lock",
     "manipulators": [
         {
             "conditions": [
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "right_option",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [{ "key_code": "right_command" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "left_command",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [{ "key_code": "left_option" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "left_option",
+                "modifiers": { "optional": ["any"] }
+            },
+            "to": [{ "key_code": "left_command" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "corsair_caps_dtap",
+                    "type": "variable_if",
+                    "value": 1
+                },
                 {
                     "identifiers": [
                         {
@@ -20,7 +82,41 @@
             "to": [
                 {
                     "set_variable": {
+                        "name": "corsair_caps_dtap",
+                        "value": 0
+                    }
+                },
+                { "key_code": "caps_lock" }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "identifiers": [
+                        {
+                            "product_id": 6973,
+                            "vendor_id": 6940
+                        }
+                    ],
+                    "type": "device_if"
+                }
+            ],
+            "from": {
+                "key_code": "caps_lock",
+                "modifiers": { "optional": ["any"] }
+            },
+            "parameters": { "basic.to_delayed_action_delay_milliseconds": 400 },
+            "to": [
+                {
+                    "set_variable": {
                         "name": "corsair_caps_mod",
+                        "value": 1
+                    }
+                },
+                {
+                    "set_variable": {
+                        "name": "corsair_caps_dtap",
                         "value": 1
                     }
                 }
@@ -33,6 +129,24 @@
                     }
                 }
             ],
+            "to_delayed_action": {
+                "to_if_canceled": [
+                    {
+                        "set_variable": {
+                            "name": "corsair_caps_dtap",
+                            "value": 0
+                        }
+                    }
+                ],
+                "to_if_invoked": [
+                    {
+                        "set_variable": {
+                            "name": "corsair_caps_dtap",
+                            "value": 0
+                        }
+                    }
+                ]
+            },
             "type": "basic"
         },
         {
@@ -87,33 +201,6 @@
                 }
             },
             "to": [{ "shell_command": "/usr/bin/open -a \"Tabby\"" }],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "name": "corsair_caps_mod",
-                    "type": "variable_if",
-                    "value": 1
-                },
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "f",
-                "modifiers": {
-                    "mandatory": ["left_shift"],
-                    "optional": ["any"]
-                }
-            },
-            "to": [{ "shell_command": "/usr/bin/open -a \"Ferdium\"" }],
             "type": "basic"
         },
         {
