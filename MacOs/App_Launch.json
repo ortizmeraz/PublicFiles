@@ -1,0 +1,84 @@
+{
+  "description": "All devices: hold Caps as modifier; double-tap Caps toggles Caps Lock; Caps+Shift+O Obsidian; Caps+Shift+T Tabby; Caps+Shift+A Apps; Caps+F Finder; Caps+Shift+F Ferdium; Caps+Shift+M Mail",
+  "manipulators": [
+    {
+      "type": "basic",
+      "conditions": [{ "type": "variable_if", "name": "caps_dtap", "value": 1 }],
+      "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
+      "to": [
+        { "set_variable": { "name": "caps_dtap", "value": 0 } },
+        { "key_code": "caps_lock" }
+      ]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
+      "to": [
+        { "set_variable": { "name": "caps_mod", "value": 1 } },
+        { "set_variable": { "name": "caps_dtap", "value": 1 } }
+      ],
+      "to_after_key_up": [{ "set_variable": { "name": "caps_mod", "value": 0 } }],
+      "to_delayed_action": {
+        "to_if_invoked": [{ "set_variable": { "name": "caps_dtap", "value": 0 } }],
+        "to_if_canceled": [{ "set_variable": { "name": "caps_dtap", "value": 0 } }]
+      },
+      "parameters": { "basic.to_delayed_action_delay_milliseconds": 300 }
+    },
+
+    {
+      "type": "basic",
+      "from": { "key_code": "o", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Obsidian\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "t", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Tabby\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "a", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Apps\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },
+
+    {
+      "type": "basic",
+      "from": { "key_code": "f", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Ferdium\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "q", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"QGIS\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },    {
+      "type": "basic",
+      "from": { "key_code": "v", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Vivanldi\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },
+
+    {
+      "type": "basic",
+      "from": { "key_code": "f", "modifiers": { "optional": [] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Finder\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },    {
+      "type": "basic",
+      "from": { "key_code": "c", "modifiers": { "optional": [] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Calendar\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },
+
+    {
+      "type": "basic",
+      "from": { "key_code": "m", "modifiers": { "optional": [] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"Mail\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    }
+  ]
+}

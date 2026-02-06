@@ -1,234 +1,53 @@
 {
-    "description": "Corsair K55 only: single-key swaps (L⌘<->L⌥, R⌥->R⌘) + Caps-mod launcher + double-tap Caps toggles Caps Lock",
-    "manipulators": [
+  "title": "Corsair K55: swaps + context menu",
+  "rules": [
+    {
+      "description": "Corsair K55 only: L⌘<->L⌥, R⌥->R⌘, Application/rightShift+Enter = right click",
+      "manipulators": [
         {
-            "conditions": [
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "right_option",
-                "modifiers": { "optional": ["any"] }
-            },
-            "to": [{ "key_code": "right_command" }],
-            "type": "basic"
+          "type": "basic",
+          "from": { "key_code": "right_option", "modifiers": { "optional": ["any"] } },
+          "to": [{ "key_code": "right_command" }],
+          "conditions": [
+            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
+          ]
         },
         {
-            "conditions": [
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "left_command",
-                "modifiers": { "optional": ["any"] }
-            },
-            "to": [{ "key_code": "left_option" }],
-            "type": "basic"
+          "type": "basic",
+          "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } },
+          "to": [{ "key_code": "left_option" }],
+          "conditions": [
+            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
+          ]
         },
         {
-            "conditions": [
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "left_option",
-                "modifiers": { "optional": ["any"] }
-            },
-            "to": [{ "key_code": "left_command" }],
-            "type": "basic"
+          "type": "basic",
+          "from": { "key_code": "left_option", "modifiers": { "optional": ["any"] } },
+          "to": [{ "key_code": "left_command" }],
+          "conditions": [
+            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
+          ]
         },
         {
-            "conditions": [
-                {
-                    "name": "corsair_caps_dtap",
-                    "type": "variable_if",
-                    "value": 1
-                },
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "caps_lock",
-                "modifiers": { "optional": ["any"] }
-            },
-            "to": [
-                {
-                    "set_variable": {
-                        "name": "corsair_caps_dtap",
-                        "value": 0
-                    }
-                },
-                { "key_code": "caps_lock" }
-            ],
-            "type": "basic"
+          "type": "basic",
+          "from": { "key_code": "application", "modifiers": { "optional": ["any"] } },
+          "to": [{ "pointing_button": "button2" }],
+          "conditions": [
+            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
+          ]
         },
         {
-            "conditions": [
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "caps_lock",
-                "modifiers": { "optional": ["any"] }
-            },
-            "parameters": { "basic.to_delayed_action_delay_milliseconds": 400 },
-            "to": [
-                {
-                    "set_variable": {
-                        "name": "corsair_caps_mod",
-                        "value": 1
-                    }
-                },
-                {
-                    "set_variable": {
-                        "name": "corsair_caps_dtap",
-                        "value": 1
-                    }
-                }
-            ],
-            "to_after_key_up": [
-                {
-                    "set_variable": {
-                        "name": "corsair_caps_mod",
-                        "value": 0
-                    }
-                }
-            ],
-            "to_delayed_action": {
-                "to_if_canceled": [
-                    {
-                        "set_variable": {
-                            "name": "corsair_caps_dtap",
-                            "value": 0
-                        }
-                    }
-                ],
-                "to_if_invoked": [
-                    {
-                        "set_variable": {
-                            "name": "corsair_caps_dtap",
-                            "value": 0
-                        }
-                    }
-                ]
-            },
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "name": "corsair_caps_mod",
-                    "type": "variable_if",
-                    "value": 1
-                },
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "o",
-                "modifiers": {
-                    "mandatory": ["left_shift"],
-                    "optional": ["any"]
-                }
-            },
-            "to": [{ "shell_command": "/usr/bin/open -a \"Obsidian\"" }],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "name": "corsair_caps_mod",
-                    "type": "variable_if",
-                    "value": 1
-                },
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "t",
-                "modifiers": {
-                    "mandatory": ["left_shift"],
-                    "optional": ["any"]
-                }
-            },
-            "to": [{ "shell_command": "/usr/bin/open -a \"Tabby\"" }],
-            "type": "basic"
-        },
-        {
-            "conditions": [
-                {
-                    "name": "corsair_caps_mod",
-                    "type": "variable_if",
-                    "value": 1
-                },
-                {
-                    "identifiers": [
-                        {
-                            "product_id": 6973,
-                            "vendor_id": 6940
-                        }
-                    ],
-                    "type": "device_if"
-                }
-            ],
-            "from": {
-                "key_code": "a",
-                "modifiers": {
-                    "mandatory": ["left_shift"],
-                    "optional": ["any"]
-                }
-            },
-            "to": [{ "shell_command": "/usr/bin/open -a \"Apps\"" }],
-            "type": "basic"
+          "type": "basic",
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": { "mandatory": ["right_shift"], "optional": ["any"] }
+          },
+          "to": [{ "pointing_button": "button2" }],
+          "conditions": [
+            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }
