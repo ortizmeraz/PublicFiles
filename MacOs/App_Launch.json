@@ -43,7 +43,6 @@
       "to": [{ "shell_command": "/usr/bin/open -a \"Apps\"" }],
       "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
     },
-
     {
       "type": "basic",
       "from": { "key_code": "f", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
@@ -55,10 +54,17 @@
       "from": { "key_code": "q", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
       "to": [{ "shell_command": "/usr/bin/open -a \"QGIS\"" }],
       "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
-    },    {
+    },
+    {
       "type": "basic",
       "from": { "key_code": "v", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
       "to": [{ "shell_command": "/usr/bin/open -a \"Vivanldi\"" }],
+      "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "g", "modifiers": { "mandatory": ["left_shift"], "optional": ["any"] } },
+      "to": [{ "shell_command": "/usr/bin/open -a \"GitHub Desktop\"" }],
       "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
     },
 
@@ -73,7 +79,6 @@
       "to": [{ "shell_command": "/usr/bin/open -a \"Calendar\"" }],
       "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }]
     },
-
     {
       "type": "basic",
       "from": { "key_code": "m", "modifiers": { "optional": [] } },
