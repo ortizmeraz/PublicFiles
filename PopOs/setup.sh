@@ -58,3 +58,5 @@ curl https://raw.githubusercontent.com/ortizmeraz/PublicFiles/refs/heads/main/.z
 mkdir .config
 
 curl -L https://raw.githubusercontent.com/ortizmeraz/PublicFiles/refs/heads/main/starship.toml -o ~/.config/starship.toml
+
+sudo reboot
