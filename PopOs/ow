@@ -1,0 +1,1 @@
+__GL_SHADER_DISK_CACHE=1 __GL_SHADER_DISK_CACHE_PATH=$HOME/.cache/nvshader DXVK_ASYNC=1 %command%  
