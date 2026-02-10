@@ -14,7 +14,7 @@ command_timeout = 1000
 
 # Change the default prompt format
 format = """\
-[[╭╴](purple bold)](238)$username[─](#c6a0f6 bold)$hostname[─](#c6a0f6 bold)$shell[─────](#c6a0f6 bold)$git_state$git_branch$git_commit$git_status[─](#c6a0f6 bold)$python[─](#c6a0f6 bold)$sudo[─────](#c6a0f6 bold)$cmd_duration[─╮](#c6a0f6 bold)
+[[╭╴](purple bold)](238)$username[─](#c6a0f6 bold)$hostname $os[─](#c6a0f6 bold)$shell[─────](#c6a0f6 bold)$git_state$git_branch$git_commit$git_status[─](#c6a0f6 bold)$python[─](#c6a0f6 bold)$sudo[──────╮](#c6a0f6 bold)
 [╰](purple bold)$character$directory[ : ](129)"""
 
 
@@ -35,26 +35,30 @@ truncation_symbol = "…/"
 
 # Command Duration 
 [cmd_duration]
-format = '[$duration](bold yellow)'
-disabled=false
+disabled=true
 
 [directory.substitutions]
-"Documents" = "📂"
-"downloads" = "⬇️"
-"music" = "🎼"
-"movies" = "🎞️"
-"home" = "🏠"
-"podcast" = "🎙️"
-"series" = "📺"
-"audiobooks" = "📖"
-"books" = "📚"
-"" = ""
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 "OmarToolboX" = "🔨"
 
 [character]
 success_symbol = "[─► ](10)[─](purple bold)"
 error_symbol = "[─►](9)"
 disabled=false
+
+
+[os]
+disabled = false
+format = "[$symbol]($style)"
+style = "bold white"
+
+[os.symbols]
+Macos = ""
+Linux = " "
+Windows = " "
 
 
 # PC name
@@ -116,7 +120,7 @@ deleted = "🗑 "
 #Shell
 [shell]
 fish_indicator = "🐟"
-powershell_indicator = "🪟"
+powershell_indicator = "_"
 bash_indicator = "🐚"
 zsh_indicator = " 💤"
 disabled = false

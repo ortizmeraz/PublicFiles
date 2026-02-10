@@ -1,53 +1,38 @@
 {
-  "title": "Corsair K55: swaps + context menu",
-  "rules": [
+  "description": "Corsair K55 only: L⌘<->L⌥, R⌥->R⌘, Application/rightShift+Enter = right click",
+  "manipulators": [
     {
-      "description": "Corsair K55 only: L⌘<->L⌥, R⌥->R⌘, Application/rightShift+Enter = right click",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": { "key_code": "right_option", "modifiers": { "optional": ["any"] } },
-          "to": [{ "key_code": "right_command" }],
-          "conditions": [
-            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } },
-          "to": [{ "key_code": "left_option" }],
-          "conditions": [
-            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "left_option", "modifiers": { "optional": ["any"] } },
-          "to": [{ "key_code": "left_command" }],
-          "conditions": [
-            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "application", "modifiers": { "optional": ["any"] } },
-          "to": [{ "pointing_button": "button2" }],
-          "conditions": [
-            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "return_or_enter",
-            "modifiers": { "mandatory": ["right_shift"], "optional": ["any"] }
-          },
-          "to": [{ "pointing_button": "button2" }],
-          "conditions": [
-            { "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }
-          ]
-        }
-      ]
+      "type": "basic",
+      "from": { "key_code": "right_option", "modifiers": { "optional": ["any"] } },
+      "to": [{ "key_code": "right_command" }],
+      "conditions": [{ "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } },
+      "to": [{ "key_code": "left_option" }],
+      "conditions": [{ "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "left_option", "modifiers": { "optional": ["any"] } },
+      "to": [{ "key_code": "left_command" }],
+      "conditions": [{ "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }]
+    },
+    {
+      "type": "basic",
+      "from": { "key_code": "application", "modifiers": { "optional": ["any"] } },
+      "to": [{ "pointing_button": "button2" }],
+      "conditions": [{ "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }]
+    },
+    {
+      "type": "basic",
+      "from": {
+        "key_code": "return_or_enter",
+        "modifiers": { "mandatory": ["right_shift"], "optional": ["any"] }
+      },
+      "to": [{ "pointing_button": "button2" }],
+      "conditions": [{ "type": "device_if", "identifiers": [{ "vendor_id": 6940, "product_id": 6973 }] }]
     }
   ]
 }
