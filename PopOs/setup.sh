@@ -50,3 +50,11 @@ sudo ufw enable
 # Verify
 sudo systemctl status ssh --no-pager
 sudo ufw status verbose
+
+curl -fsSL https://tailscale.com/install.sh | sh
+
+curl https://raw.githubusercontent.com/ortizmeraz/PublicFiles/refs/heads/main/.zshrc
+
+mkdir .config
+
+curl -L https://raw.githubusercontent.com/ortizmeraz/PublicFiles/refs/heads/main/starship.toml -o ~/.config/starship.toml

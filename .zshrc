@@ -45,8 +45,8 @@ zstyle ':completion:*' list-color "${(s.:.)LS_COLORS}"
 
 
 # Alias
-alias ls= 'lsd -l'
-alias lsa= 'lsd -la'
+alias ld= 'lsd -l'
+alias lda= 'lsd -la'
 
 
 
