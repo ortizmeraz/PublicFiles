@@ -17,6 +17,8 @@ sudo nala install -y lsd
 sudo nala install -y btop
 sudo nala install -y tree
 sudo nala install -y nerd-fonts.fira-code
+sudo nala install -y neovim 
+sudo nala install -y bat
 sudo nala install smbclient -y
 
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
