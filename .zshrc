@@ -8,7 +8,13 @@ if [[ "$(uname -s)" == "Darwin" ]] && [[ -x /opt/homebrew/bin/brew ]]; then
 fi
 eval "$(starship init zsh)"
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+# fzf key-bindings + completion (works with older fzf)
+if [[ -r /usr/share/fzf/key-bindings.zsh ]]; then
+  source /usr/share/fzf/key-bindings.zsh
+fi
+if [[ -r /usr/share/fzf/completion.zsh ]]; then
+  source /usr/share/fzf/completion.zsh
+fi
 
 # ZSH plugins 
 zinit light zsh-users/zsh-syntax-highlighting
@@ -45,8 +51,8 @@ zstyle ':completion:*' list-color "${(s.:.)LS_COLORS}"
 
 
 # Alias
-alias ld= 'lsd -l'
-alias lda= 'lsd -la'
+alias ld='lsd -l'
+alias lda='lsd -la'
 
 
 
