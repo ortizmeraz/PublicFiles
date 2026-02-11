@@ -21,25 +21,25 @@ sudo nala install smbclient -y
 
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-flatpak install flathub net.davidotek.pupgui2
-flatpak install flathub com.usebottles.bottles
-flatpak install flathub com.valvesoftware.Steam
-flatpak install flathub com.discordapp.Discord
-flatpak install flathub org.onlyoffice.desktopeditors
-flatpak install flathub org.ferdium.Ferdium
-flatpak install flathub com.vivaldi.Vivaldi
-flatpak install flathub com.brave.Browser
-flatpak install flathub md.obsidian.Obsidian
-flatpak install flathub com.obsproject.Studio
-flatpak install flathub com.spotify.Client
-flatpak install flathub org.videolan.VLC
-flatpak install flathub io.github.ungoogled_software.ungoogled_chromium
-flatpak install flathub org.kde.okular
-flatpak install flathub com.bitwarden.desktop
-flatpak install flathub org.localsend.localsend_app
-flatpak install flathub io.github.shiftey.Desktop
-flatpak install flathub org.gnome.Calendar
-flatpak install flathub com.vscodium.codium
+flatpak install flathub -y net.davidotek.pupgui2
+flatpak install flathub -y com.usebottles.bottles
+flatpak install flathub -y com.valvesoftware.Steam
+flatpak install flathub -y com.discordapp.Discord
+flatpak install flathub -y org.onlyoffice.desktopeditors
+flatpak install flathub -y org.ferdium.Ferdium
+flatpak install flathub -y com.vivaldi.Vivaldi
+flatpak install flathub -y com.brave.Browser
+flatpak install flathub -y md.obsidian.Obsidian
+flatpak install flathub -y com.obsproject.Studio
+flatpak install flathub -y com.spotify.Client
+flatpak install flathub -y org.videolan.VLC
+flatpak install flathub -y io.github.ungoogled_software.ungoogled_chromium
+flatpak install flathub -y org.kde.okular
+flatpak install flathub -y com.bitwarden.desktop
+flatpak install flathub -y org.localsend.localsend_app
+flatpak install flathub -y io.github.shiftey.Desktop
+flatpak install flathub -y org.gnome.Calendar
+flatpak install flathub -y com.vscodium.codium
 
 
 # Firewall (UFW): allow SSH (port 22) and enable firewall
