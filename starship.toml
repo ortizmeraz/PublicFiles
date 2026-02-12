@@ -14,7 +14,7 @@ command_timeout = 1000
 
 # Change the default prompt format
 format = """\
-[[╭╴](purple bold)](238)$username[─](#c6a0f6 bold)$hostname $os[─](#c6a0f6 bold)$shell[─────](#c6a0f6 bold)$git_state$git_branch$git_commit$git_status[─](#c6a0f6 bold)$python[─](#c6a0f6 bold)$sudo[──────╮](#c6a0f6 bold)
+[[╭╴](purple bold)](238)$username[─](#c6a0f6 bold)$hostname $os[─](#c6a0f6 bold)$shell[─────](#c6a0f6 bold)$git_state$git_branch$git_commit$git_status[─](#c6a0f6 bold)$python[─](#c6a0f6 bold)$sudo[─]$cmd_duration[──────╮](#c6a0f6 bold)
 [╰](purple bold)$character$directory[ : ](129)"""
 
 
