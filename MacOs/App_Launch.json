@@ -40,6 +40,10 @@
     { "type": "basic", "from": { "key_code": "d", "modifiers": { "optional": [] } }, "to": [{ "shell_command": "/usr/bin/open -a \"Discord\"" }], "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
     { "type": "basic", "from": { "key_code": "q", "modifiers": { "optional": [] } }, "to": [{ "shell_command": "/usr/bin/open -a \"QGIS\"" }], "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
     { "type": "basic", "from": { "key_code": "p", "modifiers": { "optional": [] } }, "to": [{ "shell_command": "/usr/bin/open -a \"Proton Mail\"" }], "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
+    { "type": "basic", "from": { "key_code": "h", "modifiers": { "optional": [] } }, "to": [{ "key_code": "left_arrow" }],  "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
+    { "type": "basic", "from": { "key_code": "j", "modifiers": { "optional": [] } }, "to": [{ "key_code": "down_arrow" }],  "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
+    { "type": "basic", "from": { "key_code": "k", "modifiers": { "optional": [] } }, "to": [{ "key_code": "up_arrow" }],  "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
+    { "type": "basic", "from": { "key_code": "l", "modifiers": { "optional": [] } }, "to": [{ "key_code": "right_arrow" }],  "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
 
     { "type": "basic", "from": { "key_code": "o", "modifiers": { "mandatory": ["shift"], "optional": ["any"] } }, "to": [{ "shell_command": "/usr/bin/open -a \"OnlyOffice\"" }], "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
     { "type": "basic", "from": { "key_code": "p", "modifiers": { "mandatory": ["shift"], "optional": ["any"] } }, "to": [{ "shell_command": "/usr/bin/open -a \"Podcasts\"" }], "conditions": [{ "type": "variable_if", "name": "caps_mod", "value": 1 }] },
